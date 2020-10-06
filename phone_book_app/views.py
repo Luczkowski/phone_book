@@ -78,7 +78,6 @@ def new_email(request, id):
 
 
 class SearchResultsView(ListView):
-    # model = Osoba
     template_name = 'search.html'
 
     def get_queryset(self):

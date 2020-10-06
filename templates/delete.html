@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} Delete {% endblock %}
+
+{% block body %}
+    <div class="card" style="width: 32rem;">
+      <div class="card-body">
+        <h3 class="card-title">Czy na pewno chcesz usunąć "{{ person }}"?</h3>
+          <form method="post">
+              {% csrf_token %}
+              <p><button type="submit" class="btn btn-danger">Usuń osobę</button></p>
+          </form>
+          <a href="{% url 'detail' person.id %}" class="btn btn-info">Cofnij</a>
+      </div>
+    </div>
+{% endblock %}

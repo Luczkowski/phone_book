@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} Phone book {% endblock %}
+
+{% block body %}
+    <div class="phone_book">
+    <h1>Książka telefonicza</h1>
+    <p><h5><a href="{% url 'new_person' %}">Dodaj nową osobę</a></h5></p>
+
+        <hr>
+
+    <form class="form_search" action="{% url 'search' %}" method="get">
+        <input name="q" type="text" placeholder="Szukaj...">
+        <p><button type="submit" class="btn btn-primary">Szukaj</button></p>
+    </form>
+
+        <hr>
+
+    {% for person in persons_list %}
+        <p><a href="{% url 'detail' person.id %}">{{ person }}</a></p>
+    {% endfor %}
+    </div>
+{% endblock %}

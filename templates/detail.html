@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %} {{person}} {% endblock %}
+
+{% block body %}
+
+    <div class="card" style="width: 32rem;">
+      <div class="card-body">
+        <h1 class="card-title">{{ person }}</h1>
+          <h4>Numery telefonów:</h4>
+          {% if phones_list.all %}
+          {% for number in phones_list%}
+          <p>- {{ number }}</p>
+          {% endfor %}
+          {% else %}
+          <p>-brak numerów-</p>
+          {% endif %}
+          <p><a href="{% url 'new_phone' person.id %}" class="btn btn-primary">Dodaj telefon</a></p>
+
+          <h4>Adresy email:</h4>
+          {% if emails_list.all %}
+          {% for adress in emails_list%}
+          <p>- {{ adress }}</p>
+          {% endfor %}
+          {% else %}
+          <p>-brak adresów email-</p>
+          {% endif %}
+          <p><a href="{% url 'new_email' person.id %}" class="btn btn-primary">Dodaj email</a></p>
+
+          <p>
+              <a href="{% url 'edit' person.id %}" class="btn btn-warning">Edytuj</a>
+              {% if not phones_list.all %}
+              {% if not emails_list.all %}
+              <a href="{% url 'delete' person.id  %}" class="btn btn-danger">Usuń</a>
+              {% endif %}
+              {% endif %}
+          </p>
+          <a href="{% url 'phone_book' %}" class="btn btn-info">Książka telefoniczna</a>
+      </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} Search {% endblock %}
+
+{% block body %}
+    <div class="card" style="width: 32rem;">
+      <div class="card-body">
+        <h3 class="card-title">Wyniki wyszukiwania</h3>
+          {% if object_list %}
+          <ul>
+              {% for person in object_list %}
+              <li>
+                  <a href="{% url 'detail' person.id %}">{{ person.imie }} {{ person.nazwisko }}</a>
+              </li>
+              {% endfor %}
+          </ul>
+          {% else %}
+          <p>Brak wyników</p>
+          {% endif %}
+          <a href="{% url 'phone_book' %}" class="btn btn-info">Cofnij</a>
+      </div>
+    </div>
+{% endblock %}

@@ -109,4 +109,4 @@ class SearchResultsView(ListView):
             results_list = imie_results or nazwisko_results or phones or emails
 
             return results_list
-        return models.Osoba.objects.all()
+        return Osoba.objects.all()

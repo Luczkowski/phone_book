@@ -1,6 +1,6 @@
 # phone_book
 
-AplikacjA książki telefonicznej pozwalająca na:
+Aplikacja książki telefonicznej pozwalająca na:
 * Wyświetlenie listy osób (imię i nazwisko, jej numery telefonów i adresy email)
 * Dodanie nowej osoby
 * Edycje osoby
